@@ -3,6 +3,7 @@
 import AwsCHttp
 
 /// Manages a Pool of HTTP/2 Streams. Creates and manages HTTP/2 connections under the hood.
+@available(iOS 13.0, *)
 public class HTTP2StreamManager {
     let rawValue: UnsafeMutablePointer<aws_http2_stream_manager>
 
@@ -47,6 +48,7 @@ public class HTTP2StreamManager {
     }
 }
 
+@available(iOS 13.0, *)
 private class HTTP2AcquireStreamCore {
     let continuation: CheckedContinuation<HTTP2Stream, Error>
     let callbackCore: HTTPStreamCallbackCore
@@ -61,6 +63,7 @@ private class HTTP2AcquireStreamCore {
     }
 }
 
+@available(iOS 13.0, *)
 private func onStreamAcquired(stream: UnsafeMutablePointer<aws_http_stream>?,
                               errorCode: Int32,
                               userData: UnsafeMutableRawPointer!) {

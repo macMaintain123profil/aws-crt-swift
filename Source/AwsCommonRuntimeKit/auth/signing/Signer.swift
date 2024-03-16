@@ -4,6 +4,7 @@
 import AwsCAuth
 import Foundation
 
+@available(iOS 13.0, *)
 public class Signer {
 
     /// Signs an HttpRequest that was passed in via the appropriate algorithm.
@@ -164,6 +165,7 @@ public class Signer {
     }
 }
 
+@available(iOS 13.0, *)
 class SignRequestCore {
     let request: HTTPRequestBase
     var continuation: CheckedContinuation<HTTPRequestBase, Error>
@@ -189,6 +191,7 @@ class SignRequestCore {
     }
 }
 
+@available(iOS 13.0, *)
 private func onRequestSigningComplete(signingResult: UnsafeMutablePointer<aws_signing_result>?,
                                       errorCode: Int32,
                                       userData: UnsafeMutableRawPointer!) {
@@ -209,6 +212,7 @@ private func onRequestSigningComplete(signingResult: UnsafeMutablePointer<aws_si
     }
 }
 
+@available(iOS 13.0, *)
 private func onSigningComplete(signingResult: UnsafeMutablePointer<aws_signing_result>?,
                                errorCode: Int32,
                                userData: UnsafeMutableRawPointer!) {

@@ -4,6 +4,7 @@
 import AwsCAuth
 
 // swiftlint:disable type_body_length
+@available(iOS 13.0, *)
 public class IMDSClient {
     let rawValue: OpaquePointer
     
@@ -339,6 +340,7 @@ public class IMDSClient {
     }
 }
 
+@available(iOS 13.0, *)
 private func onGetResource(byteBuf: UnsafePointer<aws_byte_buf>?,
                            errorCode: Int32,
                            userData: UnsafeMutableRawPointer!) {
@@ -352,6 +354,7 @@ private func onGetResource(byteBuf: UnsafePointer<aws_byte_buf>?,
     imdsClientCore.continuation.resume(returning: String(cString: byteBuf!.pointee.buffer))
 }
 
+@available(iOS 13.0, *)
 private func onGetResourceList(arrayListPointer: UnsafePointer<aws_array_list>?,
                                errorCode: Int32,
                                userData: UnsafeMutableRawPointer!) {
@@ -365,6 +368,7 @@ private func onGetResourceList(arrayListPointer: UnsafePointer<aws_array_list>?,
     imdsClientCore.continuation.resume(returning: arrayListPointer!.pointee.byteCursorListToStringArray())
 }
 
+@available(iOS 13.0, *)
 private func onGetCredentials(credentialsPointer: OpaquePointer?,
                               errorCode: Int32,
                               userData: UnsafeMutableRawPointer!) {
@@ -378,6 +382,7 @@ private func onGetCredentials(credentialsPointer: OpaquePointer?,
     imdsClientCore.continuation.resume(returning: Credentials(rawValue: credentialsPointer!))
 }
 
+@available(iOS 13.0, *)
 private func onGetIAMProfile(profilePointer: UnsafePointer<aws_imds_iam_profile>?,
                              errorCode: Int32,
                              userData: UnsafeMutableRawPointer!) {
@@ -391,6 +396,7 @@ private func onGetIAMProfile(profilePointer: UnsafePointer<aws_imds_iam_profile>
     imdsClientCore.continuation.resume(returning: IAMProfile(profile: profilePointer!.pointee))
 }
 
+@available(iOS 13.0, *)
 private func onGetInstanceInfo(infoPointer: UnsafePointer<aws_imds_instance_info>?,
                                errorCode: Int32,
                                userData: UnsafeMutableRawPointer!) {

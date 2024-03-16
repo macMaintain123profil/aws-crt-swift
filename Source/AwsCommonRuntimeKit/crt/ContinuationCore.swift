@@ -3,6 +3,7 @@
 
 /// Core classes have manual memory management.
 /// You have to balance the retain & release calls in all cases to avoid leaking memory.
+@available(iOS 13.0, *)
 class ContinuationCore<T> {
     let continuation: CheckedContinuation<T, Error>
 

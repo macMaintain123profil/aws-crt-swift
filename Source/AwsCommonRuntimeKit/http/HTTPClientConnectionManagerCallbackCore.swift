@@ -2,10 +2,13 @@
 //  SPDX-License-Identifier: Apache-2.0.
 import AwsCHttp
 
-typealias ConnectionContinuation = CheckedContinuation<HTTPClientConnection, Error>
 /// Core classes have manual memory management.
 /// You have to balance the retain & release calls in all cases to avoid leaking memory.
+
+@available(iOS 13.0, *)
 class HTTPClientConnectionManagerCallbackCore {
+    typealias ConnectionContinuation = CheckedContinuation<HTTPClientConnection, Error>
+
     let connectionManager: HTTPClientConnectionManager
     let continuation: ConnectionContinuation
 
@@ -35,6 +38,7 @@ class HTTPClientConnectionManagerCallbackCore {
     }
 }
 
+@available(iOS 13.0, *)
 private func onConnectionSetup(connection: UnsafeMutablePointer<aws_http_connection>?,
                                errorCode: Int32,
                                userData: UnsafeMutableRawPointer!) {
